@@ -27,7 +27,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 -   Create a copy of the .env file
     -   cp .env.example .env
 -   instal npm packages
-    -   npm install & npm run dev
+    -   npm install 
 -   Generate application key
     -   php artisan key:generate
 -   Configure the database -- Open .env file and set your database credentials:
@@ -41,6 +41,7 @@ Follow these instructions to get a copy of the project up and running on your lo
   - php artisan migrate --seed
 - Running the Development Server
   - php artisan serve
+-  npm run dev
 
 
 ## Author
