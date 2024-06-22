@@ -1,0 +1,8 @@
+header {
+    background-image: url("../images/galaxy.jpg");
+    background-size: cover;
+    /* Ensures the image covers the entire div */
+    background-position: center;
+    color: white;
+    height: 100%;
+}

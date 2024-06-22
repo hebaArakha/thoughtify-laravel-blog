@@ -1,0 +1,46 @@
+       /* Style for the current page link */
+       [aria-current] .page-link {
+        background-color: #28a745 !important;
+        /* Bootstrap success color */
+        border-color: #28a745 !important;
+        /* Optional: to match border */
+        color: white !important;
+        /* Ensure text is readable */
+    }
+
+    /* Style for the previous and next links */
+    [rel='prev'],
+    [rel='next'] {
+        background-color: #28a745 !important;
+        /* Bootstrap success color */
+        border-color: #28a745 !important;
+        /* Optional: to match border */
+        color: white !important;
+        /* Ensure text is readable */
+    }
+
+    /* Style for the other page links */
+    .pagination>li:not([rel='prev'],
+    [rel='next'],
+    [aria-current]) .page-link {
+        background-color: white !important;
+        /* Default background */
+        border-color: #28a745 !important;
+        /* Bootstrap success color border */
+        color: #28a745 !important;
+        /* Text color to match success color */
+    }
+
+    /* Optional: Hover effect for other page links */
+    .pagination>li:not([rel='prev'],
+    [rel='next'],
+    [aria-current]) .page-link:hover {
+        background-color: #28a745 !important;
+        /* Bootstrap success color */
+        color: white !important;
+        /* Ensure text is readable */
+    }
+
+    .add-thought {
+        width: 50px
+    }
