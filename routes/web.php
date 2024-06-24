@@ -16,26 +16,26 @@ Route::middleware('auth')->group(function () {
     Route::post('/articles', [ArticleController::class, 'store'])->name('articles.store');
     // comments routes
     Route::post('comments/store', [CommentController::class, 'store'])->name('comments.store');
-    });
-    
-    /////////////////////////////////////////
-    
-    Route::middleware(['CheckCurrentUser'])->group(function () {
+});
+
+/////////////////////////////////////////
+
+Route::middleware(['CheckCurrentUser'])->group(function () {
     Route::get('/articles/{id}/edit', [ArticleController::class, 'edit'])->name('articles.edit');
     Route::patch('/articles/{id}', [ArticleController::class, 'update'])->name('articles.update');
     Route::delete('/articles/{id}/delete', [ArticleController::class, 'destroy'])->name('articles.destroy');
-    });
-    
-    //////////// public routes ///////////////
-    
-    //home page
-    Route::get('/', [Controller::class, 'index'])->name('home.index');
-    // article routes
-    Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
-    Route::get('/articles/{id}', [ArticleController::class, 'show'])->name('articles.show');
-    
-    /////////////////////////////////////////
-    require __DIR__ . '/auth.php';
+});
+
+//////////// public routes ///////////////
+
+//home page
+Route::get('/', [Controller::class, 'index'])->name('home.index');
+// article routes
+Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
+Route::get('/articles/{id}', [ArticleController::class, 'show'])->name('articles.show');
+
+/////////////////////////////////////////
+require __DIR__ . '/auth.php';
     
     
     
