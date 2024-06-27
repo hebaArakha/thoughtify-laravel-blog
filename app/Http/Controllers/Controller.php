@@ -20,11 +20,17 @@ class Controller extends BaseController
 
         $cacheDuration = 5 * 60; //cache for 5 minutes
         $recents = Cache::remember('recents', $cacheDuration, function () {
-            return Article::select('id', 'title', 'created_at', 'author_id', 'thumbnail_url')->orderBy('created_at', 'desc')->take(4)->get();
+            return Article::select('articles.id', 'articles.title', 'articles.created_at', 'articles.thumbnail_url', 'users.name as author_name')->join('users', 'articles.author_id', '=', 'users.id')->orderBy('articles.created_at', 'desc')->take(4)->get();
         });
         $populars = Cache::remember('populars', $cacheDuration, function () {
-            return Article::select('id', 'title', 'created_at', 'author_id', 'thumbnail_url')->withCount('comment')->orderBy('comment_count', 'desc')->take(4)->get();
+            return Article::select('articles.id', 'articles.title', 'articles.created_at', 'articles.thumbnail_url', 'users.name as author_name')
+                ->join('users', 'articles.author_id', '=', 'users.id')
+                ->withCount('comment') // Adjust the relationship name to match your actual relationship
+                ->orderBy('comment_count', 'desc')
+                ->take(4)
+                ->get();
         });
+        
 
         return view('home.index', [
             'recents' => $recents,

@@ -34,7 +34,7 @@
                                             class="fa-regular fa-clock text-success me-2"></i>
                                         {{ $recent->created_at }}</p>
                                     <p class="card-text text-muted my-1"><i class="fa-solid fa-at text-success me-2"></i>
-                                        {{ $recent->author->name }}</p>
+                                        {{ $recent->author_name }}</p>
                                     <p class="text-muted mt-1 mb-4"> <i class="fa-regular fa-comment text-success me-2"></i>
                                         {{ count($recent->comment) }}
                                     </p>
@@ -70,7 +70,7 @@
                                             class="fa-regular fa-clock text-success me-2"></i>
                                         {{ $popular->created_at }}</p>
                                     <p class="card-text text-muted my-1"><i class="fa-solid fa-at text-success me-2"></i>
-                                        {{ $popular->author->name }}</p>
+                                        {{ $popular->author_name }}</p>
                                     <p class="text-muted mt-1 mb-4"> <i class="fa-regular fa-comment text-success me-2"></i>
                                         {{ count($popular->comment) }}
                                     </p>
