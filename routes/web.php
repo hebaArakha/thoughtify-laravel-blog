@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Controller;
-use App\Http\Middleware\CheckCurrentUser;
+// use App\Http\Middleware\CheckCurrentUser;
 
 
 ///// authentication required routes ////
@@ -36,12 +36,3 @@ Route::get('/articles/{id}', [ArticleController::class, 'show'])->name('articles
 
 /////////////////////////////////////////
 require __DIR__ . '/auth.php';
-    
-    
-    
-    // Route::get('/dashboard', function () {
-        //     return view('dashboard');
-        // })->middleware(['auth', 'verified'])->name('dashboard');
-
-// Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-// Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

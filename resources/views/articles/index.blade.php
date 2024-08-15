@@ -1,7 +1,5 @@
 @extends('layouts.layout')
 @section('content')
-
-
     <div class="container">
         <a href=" {{ route('articles.create') }} ">
             <h3 class="text-success text-center add-thought m-4 bg-dark bg-opacity-10 rounded mx-auto">
@@ -22,9 +20,9 @@
                                             class="fa-regular fa-clock text-success me-2"></i>
                                         {{ $article->created_at }}</p>
                                     <p class="card-text text-muted my-1"><i class="fa-solid fa-at text-success me-2"></i>
-                                        {{ $article->author->name }}</p>
+                                        {{ $article->author_name }}</p>
                                     <p class="text-muted mt-1 mb-4"> <i class="fa-regular fa-comment text-success me-2"></i>
-                                        {{ count($article->comment) }}
+                                        {{ $article->comments_count }}
                                     </p>
                                     <a href="{{ route('articles.show', ['id' => $article->id]) }}"
                                         class="btn btn-outline-success btn-sm ">Read More</a>

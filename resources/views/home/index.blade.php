@@ -36,7 +36,7 @@
                                     <p class="card-text text-muted my-1"><i class="fa-solid fa-at text-success me-2"></i>
                                         {{ $recent->author_name }}</p>
                                     <p class="text-muted mt-1 mb-4"> <i class="fa-regular fa-comment text-success me-2"></i>
-                                        {{ count($recent->comment) }}
+                                        {{ $recent->comment_count }}
                                     </p>
                                     <a href="{{ route('articles.show', ['id' => $recent->id]) }}"
                                         class="btn btn-outline-success btn-sm ">Read More</a>
@@ -72,7 +72,7 @@
                                     <p class="card-text text-muted my-1"><i class="fa-solid fa-at text-success me-2"></i>
                                         {{ $popular->author_name }}</p>
                                     <p class="text-muted mt-1 mb-4"> <i class="fa-regular fa-comment text-success me-2"></i>
-                                        {{ count($popular->comment) }}
+                                        {{ $popular->comments_count }}
                                     </p>
                                     <a href="{{ route('articles.show', ['id' => $popular->id]) }}"
                                         class="btn btn-outline-success btn-sm ">Read More</a>
