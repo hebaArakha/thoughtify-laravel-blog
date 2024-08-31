@@ -3,24 +3,17 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\Auth\LoginUserRequest;
+use App\Http\Requests\Auth\RegisterUserRequest;
 use App\Traits\HttpResponses;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Resources\UserResource;
 
 class UserController extends Controller
 {
     use HttpResponses;
-    public function register(Request $request)
+    public function register(RegisterUserRequest $request)
     {
-        $request->validate([
-            'name' => 'required|string|min:4',
-            'email' => 'required|email|unique:users',
-            'dob' => 'required|date_format:Y-m-d',
-            'password' => 'required|string|string|min:8|confirmed',
-            'password_confirmation' => 'required|string|min:8'
-        ]);
 
         $user = new User;
         $user->name = $request->name;
@@ -37,12 +30,9 @@ class UserController extends Controller
     }
 
 
-    public function login(Request $request)
+    public function login(LoginUserRequest $request)
     {
-        $request->validate([
-            'email' => 'required|email|string',
-            'password' => 'required|string'
-        ]);
+        $request->validated;
 
         if (!auth()->attempt($request->toArray())) {
             return $this->httpFaliure('', 'Wrong email or password', 401);
